@@ -1,22 +1,19 @@
-const { request, response  } = require('express');
-
-const esProfRole = ( req = request, res = response, next ) => {
-    if ( !req.usuario ) {
+const {request, response} = require('express');
+const esMaestroRole = (req = request, res = response, next) => {
+    if (!req.user) {
         return res.status(500).json({
-            msg: 'Se quiere verficar el role sin validar el token primero'
-        });
+            msg: 'No puede validar su rol porque no ha iniciado sesión.'
+        })
     }
 
-
-    const { rol, nombre  } = req.usuario
-    if ( rol !== 'PROFESOR_ROLE') {
+    const {rol, nombre} = req.user
+    if(rol != 'ROLE_MAESTRO'){
         return res.status(401).json({
-            msg: `${ nombre } Solo Docentes `
-        });
+            msg:  'No tienes autorización de hacer esto, debido a que no eres Maestro'
+        })
     }
 
     next();
-
 }
 
 const esAlumnoRole = (req = request, res = response) => {
@@ -26,9 +23,7 @@ const esAlumnoRole = (req = request, res = response) => {
         })
     }
 }
-
-
 module.exports = {
-    esProfRole,
+    esMaestroRole,
     esAlumnoRole
 }

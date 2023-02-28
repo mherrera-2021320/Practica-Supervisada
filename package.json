@@ -1,15 +1,14 @@
 {
-  "name": "control-de-alumnos",
+  "name": "control-alumnos",
   "version": "1.0.0",
-  "description": "Control de Alumnos IN6BV",
+  "description": "Practica Supervisada (Control de Alumnos)",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "Josue Herrera",
+  "author": "Melvin Herrera",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
